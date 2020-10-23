@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+$font: 'Oswald';
 :root {
   --primaryColor: #fff;
   --navColor1: #21292c;
@@ -15,144 +17,158 @@ html {
 body {
   margin: 0;
   background: #000;
-  font-family: "Oswald", sans-serif;
+  font-family: $font, sans-serif;
 }
 
 /* --- Navigation Menu ------------------------------ */
-.overlay {
+
+// Overlay
+
+.overlay{
   position: fixed;
   z-index: 9;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(#000, .7);
   transform: translateX(-100vw);
-}
-.overlay-slide-right {
-  transition: all 0.4s ease-in-out;
-  transform: translateX(0);
-}
-.overlay-slide-left {
-  transition: all 0.8s ease-in-out;
-  transform: translateX(-100vw);
+
+  &-slide-right{
+    transition: all .4s ease-in-out;
+    transform: translateX(0);
+  }
+  &-slide-left{
+    transition: all .8s ease-in-out;
+    transform: translateX(-100vw);
+  }
 }
 
-nav ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  list-style-type: none;
-}
-nav ul li {
-  height: 20%;
-  overflow: hidden;
-}
-nav ul li a {
-  position: relative;
-  top: 45%;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  transition: all 0.3s;
-}
-nav ul li a:hover {
-  transform: scale(1.2);
-}
-nav ul li a:hover::before {
-  opacity: 1;
-}
-nav ul li a::before {
-  content: "";
-  width: 25vw;
-  height: 3px;
-  background-color: #fff;
-  position: absolute;
-  top: 47.5%;
-  left: 0;
-  opacity: 0;
-}
-nav, nav ul {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-nav li:nth-of-type(1) {
-  background-color: var(--navColor1);
-}
-nav li:nth-of-type(2) {
-  background-color: var(--navColor2);
-}
-nav li:nth-of-type(3) {
-  background-color: var(--navColor3);
-}
-nav li:nth-of-type(4) {
-  background-color: var(--navColor4);
-}
-nav li:nth-of-type(5) {
-  background-color: var(--navColor5);
-}
 
-.slide-in-1 {
+
+
+// nav menu items
+
+nav{
+
+  ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    list-style-type: none;
+    li{
+      height: 20%;
+      overflow: hidden;
+      a{
+        position: relative;
+        top: 45%;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        transition: all .3s;
+        &:hover{
+          transform: scale(1.2);
+
+          &::before{
+            opacity: 1;
+          }
+        }
+        &::before{
+          content: "";
+          width: 25vw;
+          height: 3px;
+          background-color: #fff;
+          position: absolute;
+          top: 47.5%;
+          left: 0;
+          opacity: 0;
+        }
+      }
+    }
+  }
+  &, ul{
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  li:nth-of-type(1){
+    background-color: var(--navColor1);
+  }
+  li:nth-of-type(2){
+    background-color: var(--navColor2);
+  }
+  li:nth-of-type(3){
+    background-color: var(--navColor3);
+  }
+  li:nth-of-type(4){
+    background-color: var(--navColor4);
+  }
+  li:nth-of-type(5){
+    background-color: var(--navColor5);
+  }
+  
+}
+// Slide in animation
+.slide-in-1{
   animation: slide-in 0.4s linear 0.2s both;
 }
 
-.slide-in-2 {
+.slide-in-2{
   animation: slide-in 0.4s linear 0.4s both;
 }
-
-.slide-in-3 {
+.slide-in-3{
   animation: slide-in 0.4s linear 0.6s both;
 }
-
-.slide-in-4 {
+.slide-in-4{
   animation: slide-in 0.4s linear 0.8s both;
 }
-
-.slide-in-5 {
+.slide-in-5{
   animation: slide-in 0.4s linear 1s both;
 }
 
-@keyframes slide-in {
+@keyframes slide-in{
   from {
     transform: translateX(-100%);
   }
-  to {
+
+  to{
     transform: translateX(0);
   }
 }
-.slide-out-1 {
-  animation: slide-out 0.3s linear 0.5s both;
+
+// Slide out animation
+.slide-out-1{
+  animation: slide-out 0.3s linear .5s both;
 }
 
-.slide-out-2 {
-  animation: slide-out 0.3s linear 0.4s both;
+.slide-out-2{
+  animation: slide-out 0.3s linear .4s both;
+}
+.slide-out-3{
+  animation: slide-out 0.3s linear .3s both;
+}
+.slide-out-4{
+  animation: slide-out 0.3s linear .2s both;
+}
+.slide-out-5{
+  animation: slide-out 0.3s linear .1s both;
 }
 
-.slide-out-3 {
-  animation: slide-out 0.3s linear 0.3s both;
-}
-
-.slide-out-4 {
-  animation: slide-out 0.3s linear 0.2s both;
-}
-
-.slide-out-5 {
-  animation: slide-out 0.3s linear 0.1s both;
-}
-
-@keyframes slide-out {
+@keyframes slide-out{
   from {
     transform: translateX(0);
   }
-  to {
+
+  to{
     transform: translateX(-100%);
   }
 }
 /* --- Menu Bars ------------------------------------ */
+
 .menu-bars {
   position: fixed;
   top: 1rem;
@@ -160,12 +176,11 @@ nav li:nth-of-type(5) {
   z-index: 10;
   display: inline;
   cursor: pointer;
+  .text{
+    color: #fff;
+    text-transform: uppercase;
+  }
 }
-.menu-bars .text {
-  color: #fff;
-  text-transform: uppercase;
-}
-
 .bar1,
 .bar2,
 .bar3 {
@@ -192,6 +207,7 @@ nav li:nth-of-type(5) {
 }
 
 /* --- Sections ------------------------------------ */
+
 section {
   width: 100%;
   height: 100vh;
@@ -202,6 +218,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--primaryColor);
+  
 }
 
 section#home {
@@ -223,16 +240,19 @@ section#home a {
 }
 
 section#about {
-  background-image: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.4)), url(img/fluttershy.jpg);
-  background-size: cover;
-  background-position: top;
-  background-color: var(--navColor2);
+  background-image: linear-gradient(
+    to right bottom, rgba(#fff,.8), 
+    rgba(#000, .4)), 
+    url(img/fluttershy.jpg);
+    background-size: cover;
+    background-position:top;
+     background-color: var(--navColor2);
 }
 
 section#skills {
   background-image: url("img/pony-2.jpg");
   background-size: cover;
-  background-position: top;
+  background-position:top;
   background-color: var(--navColor3);
 }
 
